@@ -228,12 +228,14 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful() && task.getResult() != null){
                             Log.d(TAG, "Found Location");
                             Location currentLocation = (Location) task.getResult();
 
+
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
                                     default_zoom, "My Location");
+
                         }else{
                             Log.d(TAG, "getDeviceLocation failed");
                             Toast.makeText(QueryActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();

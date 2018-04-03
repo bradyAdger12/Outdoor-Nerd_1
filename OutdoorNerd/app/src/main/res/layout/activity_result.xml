@@ -25,20 +25,21 @@
                 android:layout_weight="1"
                 android:text="DATE"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#fff"/>
 
         </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         >
 
         <LinearLayout
             android:id="@+id/queryTables"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <LinearLayout
