@@ -29,6 +29,19 @@ public class DummyAL {
         dummytime1.add("2018-04-02 09:00:00");
         dummytime1.add("2018-04-02 10:00:00");
         dummytime1.add("2018-04-02 11:00:00");
+        dummytime1.add("2018-04-02 12:00:00");
+        dummytime1.add("2018-04-02 13:00:00");
+        dummytime1.add("2018-04-02 14:00:00");
+        dummytime1.add("2018-04-02 15:00:00");
+        dummytime1.add("2018-04-02 16:00:00");
+        dummytime1.add("2018-04-02 17:00:00");
+        dummytime1.add("2018-04-02 18:00:00");
+        dummytime1.add("2018-04-02 19:00:00");
+        dummytime1.add("2018-04-02 20:00:00");
+        dummytime1.add("2018-04-02 21:00:00");
+        dummytime1.add("2018-04-02 22:00:00");
+        dummytime1.add("2018-04-02 23:00:00");
+
         //return dummytime1;
 
     }
@@ -54,6 +67,18 @@ public class DummyAL {
         dummytemp.add(37);
         dummytemp.add(44);
         dummytemp.add(51);
+        dummytemp.add(60);
+        dummytemp.add(72);
+        dummytemp.add(40);
+        dummytemp.add(60);
+        dummytemp.add(473);
+        dummytemp.add(83);
+        dummytemp.add(21);
+        dummytemp.add(56);
+        dummytemp.add(69);
+        dummytemp.add(420);
+        dummytemp.add(666);
+        dummytemp.add(76);
     }
 
     public ArrayList<Integer> getDummytemp1(){

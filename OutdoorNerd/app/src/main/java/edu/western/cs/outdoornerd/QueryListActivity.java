@@ -48,6 +48,12 @@ public class QueryListActivity extends AppCompatActivity {
         listDataHeader.add("Temperature");
         listDataHeader.add("Wind");
         listDataHeader.add("Rain");
+        listDataHeader.add("Snow Depth");
+        listDataHeader.add("Soil Humidity");
+        listDataHeader.add("Stream Depth");
+        listDataHeader.add("Ground Temp");
+        listDataHeader.add("Cloud Cover");
+
 
         List<String> time = new ArrayList<>();
         time.add("Time Select");

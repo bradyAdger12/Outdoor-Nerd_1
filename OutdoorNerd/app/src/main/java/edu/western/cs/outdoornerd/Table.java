@@ -55,6 +55,7 @@ public class Table {
 
         //Generate TextView
         tableName.setText(tName);
+        tableName.setTextColor(c.getResources().getColor(R.color.White));
         tableName.setTextSize(25);
         tableName.setPadding(0, 8, 0, 0);
         tableName.setGravity(Gravity.CENTER);
@@ -76,7 +77,7 @@ public class Table {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        dateView.setTextColor(c.getResources().getColor(R.color.Black));
+        dateView.setTextColor(c.getResources().getColor(R.color.White));
         dateView.setTextSize(20);
         dateView.setPadding(0,50,0,0);
         dateView.setLayoutParams(lp);
@@ -92,7 +93,7 @@ public class Table {
         r.setText(t);
         r.setTextSize(20);
         r.setPadding(0, 50, 0, 0);
-        r.setTextColor(c.getResources().getColor(R.color.Black));
+        r.setTextColor(c.getResources().getColor(R.color.White));
         r.setGravity(Gravity.CENTER);
         linearLayout.addView(r);
 
