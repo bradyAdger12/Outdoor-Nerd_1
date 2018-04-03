@@ -84,7 +84,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
         }
     }
 
-    private static final String TAG = "mapActivity";
+    private static final String TAG = "query";
 
     private static final String FINE_LOCATION = android.Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COARSE_LOCATION = android.Manifest.permission.ACCESS_COARSE_LOCATION;
