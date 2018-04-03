@@ -1,7 +1,13 @@
 package edu.western.cs.outdoornerd;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -9,5 +15,29 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+
+        //Layouts
+        LinearLayout titleBar = findViewById(R.id.titleBar);
+        LinearLayout qTable = findViewById(R.id.queryTables);
+        LinearLayout dateLayout = findViewById(R.id.Date_Layout);
+
+
+
+        //This is how to enter data. Date, Table Name, Date Layout, Title Layout, Results layout, Context.
+        Table t1 = new Table("Temp",dateLayout, titleBar, qTable,this);
+
+        //this is how to add data to a particular table. Needs Work to add multiple queries. 
+        t1.addResult("8/2/1799", "85F");
+
+
+
+
+
+
+
+
+
     }
+
 }
