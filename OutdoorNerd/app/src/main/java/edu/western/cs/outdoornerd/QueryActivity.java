@@ -128,7 +128,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
         nextActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
+                Intent intent = new Intent(QueryActivity.this, QueryListActivity.class);
                 startActivity(intent);
             }
         });

@@ -69,7 +69,7 @@ public class Table {
         return colorChange;
     }
 
-    public void addResult(String d, String s) {
+    public void addResult(String d, String t) {
 
         //add date table
         dateView = new TextView(c.getApplicationContext());
@@ -89,7 +89,7 @@ public class Table {
 
         //add queried text view
         TextView r = new TextView(c);
-        r.setText(s);
+        r.setText(t);
         r.setTextSize(20);
         r.setPadding(0, 50, 0, 0);
         r.setTextColor(c.getResources().getColor(R.color.Black));
