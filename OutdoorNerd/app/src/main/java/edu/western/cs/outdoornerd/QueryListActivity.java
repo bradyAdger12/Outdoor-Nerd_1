@@ -2,10 +2,12 @@ package edu.western.cs.outdoornerd;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +19,19 @@ public class QueryListActivity extends AppCompatActivity {
     private ExpandableListAdapter listAdapter;
     private List<String> listDataHeader;
     private HashMap<String,List<String>> listHash;
+    private android.support.v7.widget.Toolbar toolbar;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.query_list_expand);
+
+//        toolbar = findViewById(R.id.my_toolbar);
+//        toolbar.setTitle("Query Options");
+//        setSupportActionBar(toolbar);
+//        actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         listView = (ExpandableListView)findViewById(R.id.lvExp);
         initData();
