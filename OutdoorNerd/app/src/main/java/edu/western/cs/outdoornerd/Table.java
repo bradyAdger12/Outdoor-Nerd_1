@@ -43,7 +43,7 @@ public class Table {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         dateView.setTextColor(c.getResources().getColor(R.color.Black));
-        dateView.setTextSize(20);
+        dateView.setTextSize(15);
         dateView.setPadding(0,50,0,0);
         dateView.setLayoutParams(lp);
 
