@@ -2,12 +2,14 @@ package edu.western.cs.outdoornerd;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by TheOr on 4/2/2018.
@@ -19,13 +21,15 @@ public class Table {
     static int colorChange = 0;
     LinearLayout titleLayout;
     LinearLayout content;
-    LinearLayout linearLayout;
     LinearLayout dateLayout;
     TextView dateView;
+    static HashMap<String, LinearLayout> hMap = new HashMap<>();
+    static ArrayList<String> tNameList = new ArrayList<>();
     String date;
-    public Table(String tName,LinearLayout dateLayout, LinearLayout titleLayout, LinearLayout content, Context c) {
+    public Table(String date,  LinearLayout dateLayout, LinearLayout titleLayout, LinearLayout content, Context c) {
         this.tName = tName;  //TextView Name/Id
         this.c = c;
+        this.date = date;
         this.titleLayout = titleLayout;
         this.dateLayout = dateLayout;
         this.content = content;
@@ -33,69 +37,89 @@ public class Table {
         Log.d("ddd", Integer.toString(colorChange));
 
 
-        //instantiate titleName and linearLayout body
-        TextView tableName = new TextView(c);
-        linearLayout = new LinearLayout(c);
+        //add Date table
+        dateView = new TextView(c.getApplicationContext());
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        dateView.setTextColor(c.getResources().getColor(R.color.Black));
+        dateView.setTextSize(20);
+        dateView.setPadding(0,50,0,0);
+        dateView.setLayoutParams(lp);
 
-        //change every other columns color
-        if(colorChange % 2 == 0) {
-            linearLayout.setBackgroundColor(c.getResources().getColor(R.color.colorPrimary));
-            tableName.setBackgroundColor(c.getResources().getColor(R.color.colorPrimary));
-        }
-        else {
-            linearLayout.setBackgroundColor(c.getResources().getColor(R.color.colorPrimaryDark));
-            tableName.setBackgroundColor(c.getResources().getColor(R.color.colorPrimaryDark));
+        dateView.setAllCaps(true);
 
-        }
+        dateView.setGravity(Gravity.CENTER);
+        dateView.setText(date);
+        dateLayout.addView(dateView);
 
-        //Generate LinearLayout
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
-        content.addView(linearLayout, params2);
 
-        //Generate TextView
-        tableName.setText(tName);
-        tableName.setTextColor(c.getResources().getColor(R.color.White));
-        tableName.setTextSize(25);
-        tableName.setPadding(0, 8, 0, 0);
-        tableName.setGravity(Gravity.CENTER);
-        tableName.setTypeface(Typeface.DEFAULT_BOLD);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
-        titleLayout.addView(tableName, params);
-
-        colorChange++;
     }
+
+
 
     public int getColor() {
         return colorChange;
     }
 
-    public void addResult(String d, String t) {
-
-        //add date table
-        dateView = new TextView(c.getApplicationContext());
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        dateView.setTextColor(c.getResources().getColor(R.color.White));
-        dateView.setTextSize(20);
-        dateView.setPadding(0,50,0,0);
-        dateView.setLayoutParams(lp);
-        dateView.setAllCaps(true);
-
-        dateView.setGravity(Gravity.CENTER);
-        dateView.setText(d);
-        dateLayout.addView(dateView);
+    public void addResult(String tName, String s) {
 
 
-        //add queried text view
-        TextView r = new TextView(c);
-        r.setText(t);
-        r.setTextSize(20);
-        r.setPadding(0, 50, 0, 0);
-        r.setTextColor(c.getResources().getColor(R.color.White));
-        r.setGravity(Gravity.CENTER);
-        linearLayout.addView(r);
+        TextView tableName = new TextView(c);
+        LinearLayout linearLayout = new LinearLayout(c);
+        tName = tName.toUpperCase();
 
+
+        if (!tNameList.contains(tName)) {
+            tNameList.add(tName);
+            hMap.put(tName, linearLayout);
+
+            //change every other columns color
+            if (colorChange % 2 == 0) {
+                linearLayout.setBackgroundColor(c.getResources().getColor(R.color.colorPrimary));
+                tableName.setBackgroundColor(c.getResources().getColor(R.color.colorPrimary));
+            } else {
+                linearLayout.setBackgroundColor(c.getResources().getColor(R.color.colorPrimaryDark));
+                tableName.setBackgroundColor(c.getResources().getColor(R.color.colorPrimaryDark));
+
+            }
+
+            ///Generate LinearLayout
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+            content.addView(linearLayout, params2);
+
+
+            //Generate title TextView
+            tableName.setText(tName);
+            tableName.setTextSize(25);
+            tableName.setGravity(Gravity.CENTER);
+            tableName.setBackground(ContextCompat.getDrawable(c, R.drawable.border));
+            tableName.setTypeface(Typeface.DEFAULT_BOLD);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+            titleLayout.addView(tableName, params);
+
+            TextView r = new TextView(c);
+            r.setText(s);
+            r.setTextSize(15);
+            r.setPadding(0, 50, 0, 0);
+            r.setTextColor(c.getResources().getColor(R.color.Black));
+            r.setGravity(Gravity.CENTER);
+            linearLayout.addView(r);
+
+        } else {
+            TextView r = new TextView(c);
+            r.setText(s);
+            r.setTextSize(15);
+            r.setPadding(0, 50, 0, 0);
+            r.setTextColor(c.getResources().getColor(R.color.Black));
+            r.setGravity(Gravity.CENTER);
+            hMap.get(tName).addView(r);
+        }
+
+
+        colorChange++;
     }
+
+
 }
