@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/resultPage"
+    tools:context="edu.western.cs.outdoornerd.ResultActivity"
+    android:background="@color/Black"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:layout_weight="1"
+                android:text="TIME"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/queryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="QUERY"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:textStyle="bold"
+                />
+
+
+    </LinearLayout>
+
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:scrollbarSize="2dp"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/queryTables"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+
+            <LinearLayout
+                android:id="@+id/Date_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/appMain"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/queryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@color/appSecondary">
+
+            </LinearLayout>
+
+
+</LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QUERY BY..."
+            android:textSize="30dp"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/queryListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+
+</LinearLayout>
