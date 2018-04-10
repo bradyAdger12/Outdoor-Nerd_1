@@ -1,18 +1,36 @@
 package edu.western.cs.outdoornerd;
 
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import static edu.western.cs.outdoornerd.Table.hMap;
-import static edu.western.cs.outdoornerd.Table.tNameList;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class ResultActivity extends AppCompatActivity {
+    static ListView lv;
+    static int num;
+    static LinearLayout titleBar;
+    LinearLayout dateLayout;
+    LinearLayout queryLayout;
+    LinearLayout rPage;
+    TextView queryTitle;
+    TextView r;
+    static List<String> listviewItems;
+    CustomAdapter customAdapter;
+    ArrayList<String[]> items = new ArrayList<>();
+    static ArrayList<TextView> tv = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,64 +38,138 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
 
+
+        //ListView Array
+        listviewItems = new ArrayList<>();
+        queryTitle = findViewById(R.id.queryTitle);
+
+
         //Layouts
-        LinearLayout titleBar = findViewById(R.id.titleBar);
-        LinearLayout qTable = findViewById(R.id.queryTables);
-        LinearLayout dateLayout = findViewById(R.id.Date_Layout);
+        titleBar = findViewById(R.id.titleBar);
+        dateLayout = findViewById(R.id.Date_Layout);
+        rPage = findViewById(R.id.resultPage);
+        queryLayout = findViewById(R.id.queryLayout);
 
 
+        queryData();
 
-        //This is how to enter data. Date, Table Name, Date Layout, Title Layout, Results layout, Context.
-        Table t1 = new Table("1/15/1995", dateLayout, titleBar, qTable,this);
-        Table t2 = new Table("6/5/1997", dateLayout, titleBar, qTable, this);
-        Table t3 = new Table("4/7/1962", dateLayout, titleBar, qTable, this);
-        Table t4 = new Table("6/23/1984", dateLayout, titleBar, qTable, this);
-        Table t5 = new Table("1/7/1954", dateLayout, titleBar, qTable, this);
-        Table t6 = new Table("6/23/1984", dateLayout, titleBar, qTable, this);
-        Table t7 = new Table("3/8/1971", dateLayout, titleBar, qTable, this);
-        Table t8 = new Table("12/7/1964", dateLayout, titleBar, qTable, this);
-        Table t9 = new Table("2/12/1984", dateLayout, titleBar, qTable, this);
-        Table t10 = new Table("4/20/1969", dateLayout, titleBar, qTable, this);
-        //this is how to add data to a particular table. Needs Work to add multiple queries.
-        t1.addResult("Temp", "19F");
-        t1.addResult("Wind", "N/A");
-        t2.addResult("Temp", "24F");
-        t2.addResult("Wind", "N/A");
-        t3.addResult("Temp", "23F");
-        t3.addResult("Wind", "N/A");
-        t4.addResult("Temp", "23F");
-        t4.addResult("Wind", "16mph");
-        t5.addResult("Temp", "23F");
-        t5.addResult("Wind", "18mph");
-        t6.addResult("Temp", "23F");
-        t6.addResult("Wind", "N/A");
-        t7.addResult("Temp", "N/A");
-        t7.addResult("Wind", "18mph");
-        t8.addResult("Temp", "N/A");
-        t8.addResult("Wind", "N/A");
-        t9.addResult("Temp", "18F");
-        t9.addResult("Wind", "18mph");
-        t10.addResult("Temp", "32F");
-        t10.addResult("Wind", "18mph");
+        //set up ListView
+        lv = findViewById(R.id.queryListView);
+        lv.setBackgroundColor(getResources().getColor(R.color.White));
+        customAdapter = new CustomAdapter(this,listviewItems);
+        lv.setAdapter(customAdapter);
 
 
 
 
+        //generate dummy data
+        for(int i = 0; i < num; i++) {
+            addData("42F");
+            String date = "1/15/1995" + "\n" + (i + 1) + ":00";
+            createDates(date);
+        }
 
 
+        //Set initial textviews to invisible
+        for(TextView v: tv) {
+            v.setVisibility(View.INVISIBLE);
+        }
+
+        //ListView Click Listener
+        lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                String item = (String) lv.getItemAtPosition(position);
+                Log.d("ddd", item);
+                changeTitle(item.toUpperCase());    //change title to queried item
+
+                for(int i = 0; i < num; i++) {
+                    tv.get(i).setText(Data.hm.get(item).data.get(i));  //access all textViews in query column and set text to queried items data
+
+                }
+                for(String s: Data.hm.get(item).data) {
+                 Log.d("ddd", s);}
+
+                for(TextView v: tv) {     //change TextViews to Visible
+                    v.setVisibility(View.VISIBLE);
+                }
+
+                Log.d("ddd", Integer.toString(tv.size()) + "\n" + Integer.toString(num));
+
+            }
+        });
+
+        }
 
 
-
-
-    }
     @Override
-    public void onResume() {
-        super.onResume();
-        hMap.clear();
-        tNameList.clear();
+    public void onStop() {
+        super.onStop();
+        tv.clear();
+        Log.d("ddd", "App Stopped..");
+    }
+    //fill date layout with queried dates
+
+
+    public void createDates(String s) {
+        TextView c = new TextView(this);
+        c.setTextColor(getResources().getColor(R.color.Black));
+        c.setTextSize(25);
+        c.setPadding(0, 50, 0, 0);
+        c.setGravity(Gravity.CENTER);
+        c.setText(s);
+        dateLayout.addView(c);
+
+        }
+
+    public void addData(String v) {
+
+        //Add Values
+        r = new TextView(this);
+        r.setText(v);
+        r.setTextSize(25);
+        r.setPadding(0, 50, 0, 0);
+        r.setTextColor(getResources().getColor(R.color.Black));
+        r.setGravity(Gravity.CENTER);
+        queryLayout.addView(r);
+        tv.add(r);
+
+    }
+
+    public void changeTitle(String t) {
+
+        queryTitle.setText(t);
+    }
+
+    public void queryData() {
+
+        String temps[] = {"Temp", "20" + (char) 0x00B0 + "F", "21" + (char) 0x00B0 + "F", "18" + (char) 0x00B0 + "F", "20" + (char) 0x00B0 + "F", "20" + (char) 0x00B0 + "F", "19" + (char) 0x00B0 + "F", "21" + (char) 0x00B0 + "F"};
+        String rain[] = {"Rain", "6in", "2in", "4in", "2in", "2in", "N/A", "1in"};
+        String snow[] = {"Snow Depth", "4in", "8in", "6in", "3in", "N/A", "1in", "7in"};
+        String hum[] = {"Humidity", "50%", "51%", "50%", "50%", "45%", "52%", "52%"};
+        String soil[] = {"Soil Depth", "5ft", "5ft", "5ft", "5ft", "5ft", "5ft", "5ft"};
+        String stream[] = {"Stream Vol", "400g", "400g", "400g", "400g ", "400g", "400g", "400g"};
+
+        items.add(temps);
+        items.add(rain);
+        items.add(snow);
+        items.add(hum);
+        items.add(soil);
+        items.add(stream);
+
+        num = temps.length - 1;
+
+
+        for(String[] s: items) {
+            Data c = new Data(s[0]);
+            Data.hm.get(c.getName()).compileData(num, Arrays.copyOfRange(s, 1, s.length));
+        }
+
+    }
+
 
 
 
     }
 
-}
+
