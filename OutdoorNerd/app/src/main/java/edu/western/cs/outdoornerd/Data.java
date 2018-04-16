@@ -1,7 +1,11 @@
 package edu.western.cs.outdoornerd;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,13 +20,15 @@ import javax.xml.transform.Result;
 
 public class Data {
     String name;
-    static ArrayList<Data> collectiveDataObject = new ArrayList<>();
+    String measurement;
+    ImageView img;
+    int pic;
     ArrayList<String> data = new ArrayList<>();
     static HashMap<String, Data> hm = new HashMap<>();
-    public Data(String name) {
+    public Data(String name, String measurement) {
         this.name = name;
-        collectiveDataObject.add(this);
-        ResultActivity.listviewItems.add(name);
+        this.measurement = measurement;
+        ResultActivity.listviewItems.add(this);
         hm.put(name, this);
     }
 
@@ -39,4 +45,27 @@ public class Data {
     public String getName() {
         return name;
     }
+
+    public String getMeasurement() {
+        return measurement;
+    }
+
+    public void setImage(ImageView i, int d) {
+         img = i;
+         img.setVisibility(View.VISIBLE);
+         img.setBackground(ResultActivity.c.getResources().getDrawable((d)));
+    }
+
+    public void setDrawable(int d) {
+        pic = d;
+    }
+
+    public int getDrawable(){
+        return pic;
+    }
+
+
+
+
+
 }

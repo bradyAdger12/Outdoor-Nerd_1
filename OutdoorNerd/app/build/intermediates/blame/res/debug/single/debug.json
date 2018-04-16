@@ -864,6 +864,10 @@
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/drawable-xxhdpi-v4/ic_mr_button_connected_16_dark.png"
     },
     {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_water_percent.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/water_percent.png"
+    },
+    {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_quantum_ic_replay_10_white_24.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.4.0.aar/211c48a39456de25d2d3caf6ff1243a7/res/drawable-mdpi-v4/quantum_ic_replay_10_white_24.png"
     },
@@ -1556,6 +1560,10 @@
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/drawable-xxhdpi-v4/ic_mr_button_connecting_13_dark.png"
     },
     {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_weather_fog.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/weather_fog.png"
+    },
+    {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_places_ic_search.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-places-11.4.0.aar/23c9363a8eda2f7a337f4a945a14771e/res/drawable-xxxhdpi-v4/places_ic_search.png"
     },
@@ -1582,6 +1590,10 @@
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_ic_mr_button_disconnected_light.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/drawable-mdpi-v4/ic_mr_button_disconnected_light.png"
+    },
+    {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_thermometer.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/thermometer.png"
     },
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_cast_ic_expanded_controller_mute.xml.flat",
@@ -1964,6 +1976,10 @@
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/drawable-xhdpi-v4/ic_mr_button_connecting_18_dark.png"
     },
     {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_earth.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/earth.png"
+    },
+    {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_cast_ic_stop_circle_filled_white.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.4.0.aar/211c48a39456de25d2d3caf6ff1243a7/res/drawable-hdpi-v4/cast_ic_stop_circle_filled_white.png"
     },
@@ -2066,6 +2082,10 @@
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_ic_mr_button_disconnected_dark.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/drawable-xhdpi-v4/ic_mr_button_disconnected_dark.png"
+    },
+    {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_weather_snowy.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/weather_snowy.png"
     },
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_quantum_ic_volume_up_white_36.png.flat",
@@ -2218,6 +2238,10 @@
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher_background.png.flat",
         "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/generated/res/pngs/debug/drawable-hdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_weather_pouring.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/weather_pouring.png"
     },
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -2666,6 +2690,10 @@
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_commit_search_api_mtrl_alpha.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8fa920344368b4625afb7db7eb229cb3/res/drawable-xhdpi-v4/abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_snowflake.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/snowflake.png"
     },
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -3968,6 +3996,10 @@
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.4.0.aar/211c48a39456de25d2d3caf6ff1243a7/res/drawable/cast_ic_expanded_controller_play.xml"
     },
     {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_water.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/water.png"
+    },
+    {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/anim-v21_design_bottom_sheet_slide_out.xml.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/5f435a7be1b309d09b0f3a9105eb2c56/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },
@@ -4734,5 +4766,9 @@
     {
         "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_quantum_ic_replay_10_white_24.png.flat",
         "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-cast-framework-11.4.0.aar/211c48a39456de25d2d3caf6ff1243a7/res/drawable-xhdpi-v4/quantum_ic_replay_10_white_24.png"
+    },
+    {
+        "merged": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/res/merged/debug/drawable_ic_ac_unit_black_24dp.png.flat",
+        "source": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/res/drawable/ic_ac_unit_black_24dp.png"
     }
 ]

@@ -193,6 +193,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
 
 
             Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
+            intent.putExtra("triplet", triplet);
 
             startActivity(intent);
 
