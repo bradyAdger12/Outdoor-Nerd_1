@@ -12,19 +12,22 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.KeyEvent;
 
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
@@ -38,7 +41,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -50,13 +52,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.western.cs.outdoornerd.globalVals.ConstUrl;
 import edu.western.cs.outdoornerd.models.placeInfo;
+import edu.western.cs.outdoornerd.util.NetworkUtil;
+import edu.western.cs.outdoornerd.webservice.AddQueryAsyncTask;
+import edu.western.cs.outdoornerd.webservice.HttpPostJson;
 
 public class QueryActivity extends AppCompatActivity implements OnMapReadyCallback,GoogleApiClient.OnConnectionFailedListener {
+
+    public String response;
+    public String triplet;
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -79,6 +91,48 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
             //GPS icon to drag back to current location set to false for search bar purposes
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
+
+
+            //Add Marker
+            mMap.addMarker(new MarkerOptions().position(new LatLng(39.02, -107.5)).title("737:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(38.89, -106.95)).title("380:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(38.49, -106.34)).title("701:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(38.7, -106.37)).title("1100:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(38.82, -106.59)).title("680:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(38.99, -106.75)).title("1141:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(39.08, -107.14)).title("669:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(39.13, -107.29)).title("618:CO:SNTL"));
+            mMap.addMarker(new MarkerOptions().position(new LatLng(39.08, -106.61)).title("542:CO:SNTL"));
+            //Marker Click Listener
+            relativelayout = (RelativeLayout) findViewById(R.id.relative);
+
+            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    layoutinflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                    ViewGroup container = (ViewGroup) layoutinflater.inflate(R.layout.query_pop_up,null);
+
+                    triplet = marker.getTitle();
+
+                    Log.d("mMap", triplet);
+
+                    popupwindow = new PopupWindow(container, 600,1000,true);
+                    popupwindow.showAtLocation(relativelayout, Gravity.NO_GRAVITY,200,1000);
+
+
+                    container.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            popupwindow.dismiss();
+                            return true;
+                        }
+                    });
+
+                    System.out.println("Thats something");
+
+                    return false;
+                }
+            });
 
             init();
         }
@@ -104,6 +158,9 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
     private placeInfo mPlace;
+    private LayoutInflater layoutinflater;
+    private RelativeLayout relativelayout;
+    private PopupWindow popupwindow;
 
 
     //Locations
@@ -128,25 +185,21 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
         nextActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QueryActivity.this, QueryListActivity.class);
-                startActivity(intent);
+
+
+
+                AddQueryAsyncTask addQueryAsyncTask = new AddQueryAsyncTask(triplet);
+                addQueryAsyncTask.execute();
+
+
+            Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
+
+            startActivity(intent);
+
             }
+
+
         });
-/*
-        //Hardcoded gunni mapmarker
-        double gunniLat = 38.5458;
-        double gunniLong = 106.9253;
-
-        LatLng position = new LatLng(gunniLat, gunniLong);
-
-        MarkerOptions markeroption = new MarkerOptions();
-        markeroption.position(position);
-        markeroption.title("Gunnison");
-
-        mMap.addMarker(markeroption);
-*/
-
-
 
 
     }

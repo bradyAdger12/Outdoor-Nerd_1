@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import edu.western.cs.outdoornerd.models.DataW;
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 
 public class ResultActivity extends AppCompatActivity {
     static ListView lv;
@@ -30,12 +34,20 @@ public class ResultActivity extends AppCompatActivity {
     CustomAdapter customAdapter;
     ArrayList<String[]> items = new ArrayList<>();
     static ArrayList<TextView> tv = new ArrayList<>();
+    private RealmResults<DataW> realmResults;
+    private Realm realm;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+
+
+        realm = Realm.getDefaultInstance();
+        realmResults = realm.where(DataW.class).findAll();
+        Log.d("MICA", realmResults.toString());
 
 
 
@@ -142,6 +154,8 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void queryData() {
+
+
 
         String temps[] = {"Temp", "20" + (char) 0x00B0 + "F", "21" + (char) 0x00B0 + "F", "18" + (char) 0x00B0 + "F", "20" + (char) 0x00B0 + "F", "20" + (char) 0x00B0 + "F", "19" + (char) 0x00B0 + "F", "21" + (char) 0x00B0 + "F"};
         String rain[] = {"Rain", "6in", "2in", "4in", "2in", "2in", "N/A", "1in"};

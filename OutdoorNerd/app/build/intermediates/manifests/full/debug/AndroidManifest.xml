@@ -28,7 +28,7 @@
     <uses-permission android:name="edu.western.cs.outdoornerd.permission.C2D_MESSAGE" />
 
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name="edu.western.cs.outdoornerd.App"
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"

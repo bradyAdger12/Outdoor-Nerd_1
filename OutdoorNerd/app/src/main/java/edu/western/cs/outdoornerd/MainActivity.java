@@ -12,12 +12,23 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
+import org.json.JSONObject;
+
+import edu.western.cs.outdoornerd.models.DataW;
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class MainActivity extends AppCompatActivity {
 
     //shortcut logt
     private static final String TAG = "MainActivity";
     //Constant
     private static final int ERROR_DIALOG_REQUEST = 9001;
+    private JSONObject testObject;
+
+    private Realm mRealm;
+    private RealmResults<Data> mResults;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
         if(isServicesOK()){
             init();
         }
+
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults results = realm.where(DataW.class).findAll();
+        Log.d("MICA", String.valueOf(results.size()));
+
+
     }
     private void init(){
         Button bttnMap = (Button) findViewById(R.id.mapButton);

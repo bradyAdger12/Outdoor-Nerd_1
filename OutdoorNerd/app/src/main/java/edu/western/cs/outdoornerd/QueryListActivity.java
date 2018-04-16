@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
@@ -13,6 +14,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.western.cs.outdoornerd.models.DataW;
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class QueryListActivity extends AppCompatActivity {
 
     private ExpandableListView listView;
@@ -21,6 +26,10 @@ public class QueryListActivity extends AppCompatActivity {
     private HashMap<String,List<String>> listHash;
     private android.support.v7.widget.Toolbar toolbar;
     private ActionBar actionBar;
+    private RealmResults<DataW> mRealmResults;
+    private Realm mRealm;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +42,26 @@ public class QueryListActivity extends AppCompatActivity {
 //        actionBar = getSupportActionBar();
 //        actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+
+        mRealm = Realm.getDefaultInstance();
+        mRealmResults = mRealm.where(DataW.class).findAll();
+        Log.d("RESULTS", String.valueOf(mRealmResults.size()));
+
+
+
+
+
         listView = (ExpandableListView)findViewById(R.id.lvExp);
         initData();
+
         listAdapter = new ExpandableListAdapter(this,listDataHeader,listHash);
         listView.setAdapter(listAdapter);
 
     }
 
     private void initData() {
+
         listDataHeader = new ArrayList<>();
         listHash = new HashMap<>();
 
