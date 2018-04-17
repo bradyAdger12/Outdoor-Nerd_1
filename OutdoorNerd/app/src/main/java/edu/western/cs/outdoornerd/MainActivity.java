@@ -2,6 +2,8 @@ package edu.western.cs.outdoornerd;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Realm mRealm;
     private RealmResults<Data> mResults;
+    long timerStarted;
 
 
     @Override
@@ -35,24 +38,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(isServicesOK()){
-            init();
+
+            Runnable nextAction;
+            nextAction=new Runnable() {
+                @Override
+                public void run() {
+                Intent intent = new Intent(MainActivity.this, QueryActivity.class);
+                startActivity(intent);
+                finish();
+                }
+            };
+
+            //delay
+            new Handler().postDelayed(nextAction,3000 ); //delaying 1.5 seconds in UI
         }
 
-        Realm realm = Realm.getDefaultInstance();
-        RealmResults results = realm.where(DataW.class).findAll();
-        Log.d("MICA", String.valueOf(results.size()));
+
 
 
     }
     private void init(){
-        Button bttnMap = (Button) findViewById(R.id.mapButton);
-        bttnMap.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, QueryActivity.class);
-                startActivity(intent);
-            }
-        });
+//        Button bttnMap = (Button) findViewById(R.id.mapButton);
+//        bttnMap.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, QueryActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+//        Intent intent = new Intent(MainActivity.this, QueryActivity.class);
+//        startActivity(intent);
 
     }
 

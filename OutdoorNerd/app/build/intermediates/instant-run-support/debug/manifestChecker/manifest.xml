@@ -53,12 +53,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="edu.western.cs.outdoornerd.QueryActivity" />
+        <activity
+            android:name="edu.western.cs.outdoornerd.QueryActivity"
+            android:parentActivityName="edu.western.cs.outdoornerd.QueryActivity" />
         <activity
             android:name="edu.western.cs.outdoornerd.ResultActivity"
-            android:parentActivityName="edu.western.cs.outdoornerd.QueryListActivity" />
-        <activity
-            android:name="edu.western.cs.outdoornerd.QueryListActivity"
             android:parentActivityName="edu.western.cs.outdoornerd.QueryActivity" />
 
         <meta-data

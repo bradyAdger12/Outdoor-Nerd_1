@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -68,6 +69,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
 
     public String response;
     public String triplet;
+    public Toolbar toolbar;
 
 
     @Override
@@ -110,23 +112,26 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
                 @Override
                 public boolean onMarkerClick(Marker marker) {
                     layoutinflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                    ViewGroup container = (ViewGroup) layoutinflater.inflate(R.layout.query_pop_up,null);
+                    //ViewGroup container = (ViewGroup) layoutinflater.inflate(R.layout.query_pop_up,null);
+
+
+                    nextActivityButton.setVisibility(View.VISIBLE);
 
                     triplet = marker.getTitle();
 
                     Log.d("mMap", triplet);
 
-                    popupwindow = new PopupWindow(container, 600,1000,true);
-                    popupwindow.showAtLocation(relativelayout, Gravity.NO_GRAVITY,200,1000);
+                    //popupwindow = new PopupWindow(container, 600,1000,true);
+                    //popupwindow.showAtLocation(relativelayout, Gravity.NO_GRAVITY,200,1000);
 
 
-                    container.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            popupwindow.dismiss();
-                            return true;
-                        }
-                    });
+//                    container.setOnTouchListener(new View.OnTouchListener() {
+//                       @Override
+//                        public boolean onTouch(View v, MotionEvent event) {
+//                            popupwindow.dismiss();
+//                            return true;
+//                        }
+//                    });
 
                     System.out.println("Thats something");
 
@@ -175,6 +180,11 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
+
+//        toolbar = findViewById(R.id.my_toolbar);
+//        toolbar.setTitle("Map");
+//        setSupportActionBar(toolbar);
+
         getLocationPermission();
         mSearchText = (AutoCompleteTextView) findViewById(R.id.inputSearch);
         mGps = (ImageView) findViewById(R.id.ic_gps);
@@ -182,6 +192,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
 
         //Next Activity Button
         nextActivityButton = (ImageButton) findViewById(R.id.nextActivityButton);
+
         nextActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,10 +203,10 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
                 addQueryAsyncTask.execute();
 
 
-            Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
-            intent.putExtra("triplet", triplet);
-
-            startActivity(intent);
+                Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
+                intent.putExtra("triplet", triplet);
+                startActivity(intent);
+                //finish();
 
             }
 
@@ -264,7 +275,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
         if (list.size() > 0){
             Address address = list.get(0);
             Log.d(TAG, "geoLocate: found a location" + address.toString());
-            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
 
             //This moves camera to address typed in search bar
             moveCamera(new LatLng(address.getLatitude(), address.getLongitude()),default_zoom, address.getAddressLine(0));
@@ -309,10 +320,10 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
         Log.d(TAG, "moveCamera: Moving the camera to lat: " + latLng.latitude + ", lng: " + latLng.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
 
-        if (!title.equals("My Location")){
+        /*if (!title.equals("My Location")){
             MarkerOptions options = new MarkerOptions().position(latLng).title(title);
             mMap.addMarker(options);
-        }
+        }*/
 
         hideKeyboard();
 

@@ -76,7 +76,9 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/ic_gps"
         android:layout_marginTop="12dp"
-        app:srcCompat="@drawable/ic_nextactivity" />
+        app:srcCompat="@drawable/ic_nextactivity"
+        android:visibility="invisible"
+        />
 
 
 </RelativeLayout>

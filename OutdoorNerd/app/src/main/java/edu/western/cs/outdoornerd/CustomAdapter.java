@@ -32,22 +32,29 @@ public class CustomAdapter extends ArrayAdapter<Data> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+
+
         View listItem = convertView;
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.textvlayout,parent,false);
+
+        if (position == mSelectedItem) {
+            listItem.setBackgroundColor(getContext().getResources().getColor(R.color.appMain));
+
+        }
 
             TextView name = listItem.findViewById(R.id.nameText);
             name.setText(itemList.get(position).getName());
             ImageView img = listItem.findViewById(R.id.imgIcon);
             itemList.get(position).setImage(img,itemList.get(position).getDrawable());
-
+/*
         if (position % 2 == 1) {
             listItem.setBackgroundColor(getContext().getResources().getColor(R.color.appSecondary));
         } else {
             listItem.setBackgroundColor(getContext().getResources().getColor(R.color.White));
         }
 
-
+*/
 
 
         return listItem;

@@ -31,12 +31,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QueryActivity" />
-        <activity android:name=".ResultActivity"
-            android:parentActivityName=".QueryListActivity"/>
-        <activity android:name=".QueryListActivity"
-            android:parentActivityName=".QueryActivity"/>
+        <activity android:name=".QueryActivity"
+                  android:parentActivityName=".QueryActivity"/>
 
+        <activity
+            android:name=".ResultActivity"
+            android:parentActivityName=".QueryActivity" />
     </application>
 
 </manifest>

@@ -312,21 +312,17 @@ ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalPr
 	android:name
 		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:31:27-74
 activity#edu.western.cs.outdoornerd.QueryActivity
-ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:34:9-51
+ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:34:9-35:64
+	android:parentActivityName
+		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:35:19-62
 	android:name
 		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:34:19-48
 activity#edu.western.cs.outdoornerd.ResultActivity
-ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:35:9-36:62
+ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:37:9-39:59
 	android:parentActivityName
-		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:36:13-60
+		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:35:19-49
-activity#edu.western.cs.outdoornerd.QueryListActivity
-ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:37:9-38:58
-	android:parentActivityName
-		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:38:13-56
-	android:name
-		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:37:19-52
+		ADDED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml:38:13-43
 uses-sdk
 INJECTED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/src/main/AndroidManifest.xml

@@ -11,6 +11,8 @@
     android:weightSum="2">
 
 
+    <include layout="@layout/tool_bar"/>
+
     <LinearLayout
             android:orientation="horizontal"
             android:id="@+id/titleBar"
@@ -72,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/appMain"
+                android:background="@color/White"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -83,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:background="@color/appSecondary">
+                android:background="@color/appMain">
 
             </LinearLayout>
 

@@ -5,8 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="Black">#000000</color>
     <color name="White">#ffffff</color>
-    <color name="appMain">#9D9C62</color>
-    <color name="appSecondary">#A8C686</color>
+    <color name="appMain">#96c93f</color>
+    <color name="appSecondary">#4288b7</color>
     <color name="titleColors">#ffffff</color>
     <color name="listView">#5B8E7D</color>
 </resources>

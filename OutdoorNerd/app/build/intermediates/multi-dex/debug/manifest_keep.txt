@@ -1,3 +1,0 @@
-# Referenced at /Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:30
--keep class edu.western.cs.outdoornerd.App { <init>(...); }
-

@@ -5,27 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="edu.western.cs.outdoornerd.MainActivity">
 
-    <TextView
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp"
-        android:text="Outdoor Nerd"
-        android:textSize="40sp" />
+        android:padding="60dp"
+        android:src="@drawable/outdoornerdlogo"
+        />
 
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:gravity="center_horizontal"
-        android:text="Map"
-        android:textSize="20sp"
-        android:id="@+id/mapButton" />
+
+
+
+
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginBottom="53dp"-->
+    <!--android:text="Outdoor Nerd"-->
+    <!--android:textSize="40sp" />-->
+
+
+    <!--<Button-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:text="Map"-->
+    <!--android:textSize="20sp"-->
+    <!--android:id="@+id/mapButton" />-->
+
+
+
 
 
 

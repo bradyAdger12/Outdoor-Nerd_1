@@ -3,6 +3,7 @@ package edu.western.cs.outdoornerd;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import java.sql.Array;
 import java.sql.SQLOutput;
@@ -21,6 +23,7 @@ import edu.western.cs.outdoornerd.models.DataW;
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 
 public class ResultActivity extends AppCompatActivity {
@@ -44,6 +47,7 @@ public class ResultActivity extends AppCompatActivity {
     public String dateTime = "";
     ArrayList<String> dateTime1 = new ArrayList<>();
     ArrayList<String> dateTime2 = new ArrayList<>();
+    public android.support.v7.widget.Toolbar toolbar;
 
 
 
@@ -59,10 +63,17 @@ public class ResultActivity extends AppCompatActivity {
         mResults = realm.where(DataW.class).equalTo("triplet", triplet);
 
 
+        toolbar = findViewById(R.id.my_toolbar);
+        toolbar.setTitle(triplet);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.Black));
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         //set context
         c = this;
-
 
         //ListView Array
         listviewItems = new ArrayList<>();
@@ -90,37 +101,31 @@ public class ResultActivity extends AppCompatActivity {
 
 
         //generate dateTime from mResults and convert datetime to eliminate seconds
-        for (DataW d : mResults.findAll()){
+        for (DataW d : mResults.findAll().sort("dateTime", Sort.DESCENDING)){
             dateTime1.add(d.getDateTime());
         }
-        for (String s : dateTime1){
-            if (!s.equals("null")) {
-                s.substring(0, 15);
-                dateTime2.add(s);
-            }
 
-        }
 
 
         //generate dummy textviews for query table and add dates
-        for(int i = 0; i < dateTime2.size(); i++) {
+        for(int i = 0; i < dateTime1.size(); i++) {
             addData("42F");
-            new DateTime(dateTime2.get(i).substring(4,6), dateTime2.get(i).substring(7,9), dateTime2.get(i).substring(0,3), dateTime2.get(i).substring(10,15), this);
+            String hour = "";
+            if (dateTime1.get(i).substring(11,12).equals("0")){
+                hour = dateTime1.get(i).substring(12,13);
+                Log.d("PARSING",  hour);
+            } else{
+                hour = dateTime1.get(i).substring(11,13);
+                Log.d("PARSING",  hour);
+            }
+
+            new DateTime(dateTime1.get(i).substring(5,7), dateTime1.get(i).substring(8,10), dateTime1.get(i).substring(0,3), hour, this);
             //new DateTime("1", "15", "1995", Integer.toString(i + 1), this);
         }
 
 
-//        for (DataW d: mResults.findAll()){
-//            d.getDateTime();
-//            d.getTemp();
-//            Log.d("TesterLester", d.getDateTime() + " " + d.getTemp());
-//        }
 
-
-
-
-
-         timeTitle.setText("TIME" + "\n" + DateTime.dateList.get(0).toString() + " - " + DateTime.dateList.get(DateTime.dateList.size()-1).toString());
+        timeTitle.setText("TIME" + "\n" + DateTime.dateList.get(0).toString() + " - " + DateTime.dateList.get(DateTime.dateList.size()-1).toString());
 
         //Set initial textviews to invisible
         for(TextView v: tv) {
@@ -130,10 +135,10 @@ public class ResultActivity extends AppCompatActivity {
         //add icons to listview for each item and set to visible
         Data.hm.get("Temp").setDrawable(R.drawable.thermometer);
         Data.hm.get("Snow Depth").setDrawable(R.drawable.snowflake);
-        Data.hm.get("Rain").setDrawable(R.drawable.weather_pouring);
-        Data.hm.get("Soil Depth").setDrawable(R.drawable.earth);
-        Data.hm.get("Stream Vol").setDrawable(R.drawable.water);
-        Data.hm.get("Humidity").setDrawable(R.drawable.water_percent);
+        Data.hm.get("Wind").setDrawable(R.drawable.weather_pouring);
+//        Data.hm.get("Soil Depth").setDrawable(R.drawable.earth);
+//        Data.hm.get("Stream Vol").setDrawable(R.drawable.water);
+        Data.hm.get("Water EQ").setDrawable(R.drawable.water_percent);
 
         //ListView Click Listener
         lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
@@ -143,6 +148,10 @@ public class ResultActivity extends AppCompatActivity {
                 Log.d("ddd", item.getName());
                 Data data = item;
                 changeTitle(data.getName().toUpperCase() + "(" + data.getMeasurement() + ")");    //change title to queried item
+
+               // lv.setBackgroundColor(getResources().getColor(R.color.appMain));
+                mSelectedItem = position;
+                mAdapter.notifyDataSetChanged();
 
                 for(int i = 0; i < num; i++) {
                     tv.get(i).setText(data.data.get(i));  //access all textViews in query column and set text to queried items data
@@ -157,9 +166,6 @@ public class ResultActivity extends AppCompatActivity {
                 //Log.d("ddd", Integer.toString(tv.size()) + "\n" + Integer.toString(num)); //Used to find difference of textview list and num.*
             }
         });
-
-
-
 
         }
 
@@ -199,30 +205,30 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<String> tempsAL = new ArrayList<>();
         tempsAL.add("Temp");
         tempsAL.add((char) 0x00B0 + "F");
-        for (DataW d : mResults.findAll()){
+        for (DataW d : mResults.findAll().sort("dateTime", Sort.DESCENDING)){
             tempsAL.add(d.getTemp());
         }
 
         ArrayList<String> windA = new ArrayList<>();
-        windA.add("Rain");
-        windA.add("L");
-        for (DataW d : mResults.findAll()){
-            windA.add(d.getTemp());
+        windA.add("Wind");
+        windA.add("mph");
+        for (DataW d : mResults.findAll().sort("dateTime", Sort.DESCENDING)){
+            windA.add(d.getWindA());
         }
 
         ArrayList<String> snowD = new ArrayList<>();
         snowD.add("Snow Depth");
-        snowD.add("m");
-        for (DataW d : mResults.findAll()){
-            snowD.add(d.getTemp());
+        snowD.add("in");
+        for (DataW d : mResults.findAll().sort("dateTime", Sort.DESCENDING)){
+            snowD.add(d.getSnowD());
         }
 
 
         ArrayList<String> waterEq = new ArrayList<>();
-        waterEq.add("Humidity");
+        waterEq.add("Water EQ");
         waterEq.add("in");
         for (DataW d : mResults.findAll()){
-            waterEq.add(d.getTemp());
+            waterEq.add(d.getWaterEq());
         }
 
 
@@ -242,8 +248,8 @@ public class ResultActivity extends AppCompatActivity {
 //        String rain[] = {"Rain", "L", "6", "2", "4", "2", "2", "N/A", "1", "2", "2"};
 //        String snow[] = {"Snow Depth", "m", "4", "8", "6", "3", "N/A", "1", "7", "6", "7"};
 //        String hum[] = {"Humidity", "%", "50", "51", "50", "50", "45", "52", "52", "51", "51"};
-        String soil[] = {"Soil Depth", "m", "5", "5", "5", "5", "5", "5", "5", "5", "5"};
-        String stream[] = {"Stream Vol", "L", "400", "400", "400", "400", "400", "400", "400", "400", "400"};
+//        String soil[] = {"Soil Depth", "m", "5", "5", "5", "5", "5", "5", "5", "5", "5"};
+//        String stream[] = {"Stream Vol", "L", "400", "400", "400", "400", "400", "400", "400", "400", "400"};
 
 
 //        items.add(temps);
@@ -257,8 +263,8 @@ public class ResultActivity extends AppCompatActivity {
         items.add(rain);
         items.add(snow);
         items.add(hum);
-        items.add(soil);
-        items.add(stream);
+//        items.add(soil);
+//        items.add(stream);
 
         num = temps.length - 2;
 
