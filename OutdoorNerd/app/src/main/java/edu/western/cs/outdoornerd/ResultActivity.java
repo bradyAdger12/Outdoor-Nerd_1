@@ -12,6 +12,9 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.sql.Array;
+import java.sql.SQLOutput;
 import java.util.*;
 
 import edu.western.cs.outdoornerd.models.DataW;
@@ -38,6 +41,10 @@ public class ResultActivity extends AppCompatActivity {
     public Realm realm;
     public RealmQuery<DataW> mResults;
     public String triplet;
+    public String dateTime = "";
+    ArrayList<String> dateTime1 = new ArrayList<>();
+    ArrayList<String> dateTime2 = new ArrayList<>();
+
 
 
 
@@ -46,15 +53,12 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         triplet = intent.getStringExtra("triplet");
-
         realm = Realm.getDefaultInstance();
+        mResults = realm.where(DataW.class).equalTo("triplet", triplet);
 
 
-        mResults = realm.where(DataW.class).contains("triplet", triplet);
-
-        Log.d("ooo", String.valueOf(mResults.average("temp")));
 
         //set context
         c = this;
@@ -85,11 +89,35 @@ public class ResultActivity extends AppCompatActivity {
         queryData();
 
 
-        //generate dummy textviews for query table and add dates
-        for(int i = 0; i < num; i++) {
-            addData("42F");
-            new DateTime("1", "15", "1995", Integer.toString(i + 1), this);
+        //generate dateTime from mResults and convert datetime to eliminate seconds
+        for (DataW d : mResults.findAll()){
+            dateTime1.add(d.getDateTime());
         }
+        for (String s : dateTime1){
+            if (!s.equals("null")) {
+                s.substring(0, 15);
+                dateTime2.add(s);
+            }
+
+        }
+
+
+        //generate dummy textviews for query table and add dates
+        for(int i = 0; i < dateTime2.size(); i++) {
+            addData("42F");
+            new DateTime(dateTime2.get(i).substring(4,6), dateTime2.get(i).substring(7,9), dateTime2.get(i).substring(0,3), dateTime2.get(i).substring(10,15), this);
+            //new DateTime("1", "15", "1995", Integer.toString(i + 1), this);
+        }
+
+
+//        for (DataW d: mResults.findAll()){
+//            d.getDateTime();
+//            d.getTemp();
+//            Log.d("TesterLester", d.getDateTime() + " " + d.getTemp());
+//        }
+
+
+
 
 
          timeTitle.setText("TIME" + "\n" + DateTime.dateList.get(0).toString() + " - " + DateTime.dateList.get(DateTime.dateList.size()-1).toString());
@@ -167,12 +195,63 @@ public class ResultActivity extends AppCompatActivity {
 
     public void queryData() {
 
-        String temps[] = {"Temp", (char) 0x00B0 + "F", "20", "21", "18", "20", "20", "19", "21", "21", "22"};
-        String rain[] = {"Rain", "L", "6", "2", "4", "2", "2", "N/A", "1", "2", "2"};
-        String snow[] = {"Snow Depth", "m", "4", "8", "6", "3", "N/A", "1", "7", "6", "7"};
-        String hum[] = {"Humidity", "%", "50", "51", "50", "50", "45", "52", "52", "51", "51"};
+
+        ArrayList<String> tempsAL = new ArrayList<>();
+        tempsAL.add("Temp");
+        tempsAL.add((char) 0x00B0 + "F");
+        for (DataW d : mResults.findAll()){
+            tempsAL.add(d.getTemp());
+        }
+
+        ArrayList<String> windA = new ArrayList<>();
+        windA.add("Rain");
+        windA.add("L");
+        for (DataW d : mResults.findAll()){
+            windA.add(d.getTemp());
+        }
+
+        ArrayList<String> snowD = new ArrayList<>();
+        snowD.add("Snow Depth");
+        snowD.add("m");
+        for (DataW d : mResults.findAll()){
+            snowD.add(d.getTemp());
+        }
+
+
+        ArrayList<String> waterEq = new ArrayList<>();
+        waterEq.add("Humidity");
+        waterEq.add("in");
+        for (DataW d : mResults.findAll()){
+            waterEq.add(d.getTemp());
+        }
+
+
+        String temps[] = new String[tempsAL.size()];
+        String rain[] = new String[windA.size()]; //this is actually wind
+        String snow[] = new String[snowD.size()]; //snow depth
+        String hum[] = new String[waterEq.size()]; // actually water eQ
+
+        ArrayListtoArray(tempsAL, temps);
+        ArrayListtoArray(windA, rain);
+        ArrayListtoArray(snowD, snow);
+        ArrayListtoArray(waterEq, hum);
+
+
+
+//        String temps[] = {"Temp", (char) 0x00B0 + "F", "20", "21", "18", "20", "20", "19", "21", "21", "22"};
+//        String rain[] = {"Rain", "L", "6", "2", "4", "2", "2", "N/A", "1", "2", "2"};
+//        String snow[] = {"Snow Depth", "m", "4", "8", "6", "3", "N/A", "1", "7", "6", "7"};
+//        String hum[] = {"Humidity", "%", "50", "51", "50", "50", "45", "52", "52", "51", "51"};
         String soil[] = {"Soil Depth", "m", "5", "5", "5", "5", "5", "5", "5", "5", "5"};
         String stream[] = {"Stream Vol", "L", "400", "400", "400", "400", "400", "400", "400", "400", "400"};
+
+
+//        items.add(temps);
+//        items.add(rain);
+//        items.add(snow);
+//        items.add(hum);
+//        items.add(soil);
+//        items.add(stream);
 
         items.add(temps);
         items.add(rain);
@@ -190,6 +269,13 @@ public class ResultActivity extends AppCompatActivity {
         }
 
     }
+
+
+    public static void ArrayListtoArray(ArrayList<String> stringList, String[] stringArray){
+            for (int i =0; i < stringList.size(); i++){
+                stringArray[i] = stringList.get(i);
+            }
+        }
 
     }
 

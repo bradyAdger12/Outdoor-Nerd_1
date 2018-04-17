@@ -6,22 +6,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1523918668951"
+    timestamp="1523927000294"
     token="4547353814081874180"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1431" />
+        duration="1045" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="33" />
+        duration="18" />
     <task
         name="verifier"
-        duration="3" />
+        duration="4" />
 
     <artifact
         location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
@@ -71,7 +71,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1523918668951"
+        timestamp="1523927000294"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
