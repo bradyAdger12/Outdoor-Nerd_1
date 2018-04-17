@@ -6,6 +6,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -70,6 +71,7 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
     public String response;
     public String triplet;
     public Toolbar toolbar;
+    public Runnable nextAction;
 
 
     @Override
@@ -175,15 +177,10 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
 
 
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_query);
-
-//        toolbar = findViewById(R.id.my_toolbar);
-//        toolbar.setTitle("Map");
-//        setSupportActionBar(toolbar);
 
         getLocationPermission();
         mSearchText = (AutoCompleteTextView) findViewById(R.id.inputSearch);
@@ -197,16 +194,24 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public void onClick(View v) {
 
-
-
                 AddQueryAsyncTask addQueryAsyncTask = new AddQueryAsyncTask(triplet);
                 addQueryAsyncTask.execute();
+                Runnable nextAction;
+                nextAction=new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
+                        intent.putExtra("triplet", triplet);
+                        startActivity(intent);
+                    }
+                };
+
+                //delay
+                new Handler().postDelayed(nextAction,2000 ); //delaying 1.5 seconds in UI
 
 
-                Intent intent = new Intent(QueryActivity.this, ResultActivity.class);
-                intent.putExtra("triplet", triplet);
-                startActivity(intent);
-                //finish();
+
+
 
             }
 
@@ -217,6 +222,10 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private void init (){
         Log.d(TAG, "init: initializing");
@@ -443,5 +452,6 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
 
         }
     };
+
 
 }

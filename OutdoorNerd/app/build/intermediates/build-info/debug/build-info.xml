@@ -2,40 +2,33 @@
 <instant-run
     abi="x86"
     api-level="26"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1523983221541"
+    timestamp="1523996464370"
     token="4547353814081874180"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1079" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="9" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="12" />
+        duration="0" />
     <task
         name="verifier"
-        duration="1" />
-
-    <artifact
-        location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        duration="0" />
 
     <build
         build-mode="FULL"
-        timestamp="1523982419427"
+        timestamp="1523996425316"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
-        <artifact
-            location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/outputs/apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
@@ -66,39 +59,22 @@
         <artifact
             location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/outputs/apk/debug/app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1523982674761"
+        timestamp="1523996446880"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
     </build>
     <build
-        build-mode="HOT_WARM"
-        timestamp="1523982836080"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/builds/debug/1523982836080/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1523983123987"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/builds/debug/1523983123987/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1523983221541"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
+        build-mode="COLD"
+        timestamp="1523996464370"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

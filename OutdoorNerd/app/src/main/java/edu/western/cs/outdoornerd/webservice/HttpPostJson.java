@@ -92,7 +92,6 @@ public class HttpPostJson {
             Log.d("ddd",JsonResponse);
 
 
-
                 try {
                     JSONArray mJsonArrayTDs = new JSONArray(JsonResponse);
                     for(int i=0; i<mJsonArrayTDs.length(); i++){

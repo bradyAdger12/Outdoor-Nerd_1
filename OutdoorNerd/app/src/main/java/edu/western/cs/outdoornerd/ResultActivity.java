@@ -56,6 +56,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Log.d("ResultActivity", "onCreate: ");
 
         Intent intent = getIntent();
         triplet = intent.getStringExtra("triplet");
@@ -108,15 +109,18 @@ public class ResultActivity extends AppCompatActivity {
 
 
         //generate dummy textviews for query table and add dates
+        Log.d("StartingDateTime", "just before");
+        Log.d("DateSize", String.valueOf(dateTime1.size()));
         for(int i = 0; i < dateTime1.size(); i++) {
             addData("42F");
             String hour = "";
+            //Log.d("ForLoop", "running through loop " + triplet);
             if (dateTime1.get(i).substring(11,12).equals("0")){
                 hour = dateTime1.get(i).substring(12,13);
-                Log.d("PARSING",  hour);
+                Log.d("PARSING",  hour + " " + triplet);
             } else{
                 hour = dateTime1.get(i).substring(11,13);
-                Log.d("PARSING",  hour);
+                Log.d("PARSING",  hour + " " + triplet);
             }
 
             new DateTime(dateTime1.get(i).substring(5,7), dateTime1.get(i).substring(8,10), dateTime1.get(i).substring(0,3), hour, this);
@@ -150,8 +154,8 @@ public class ResultActivity extends AppCompatActivity {
                 changeTitle(data.getName().toUpperCase() + "(" + data.getMeasurement() + ")");    //change title to queried item
 
                // lv.setBackgroundColor(getResources().getColor(R.color.appMain));
-                mSelectedItem = position;
-                mAdapter.notifyDataSetChanged();
+                //mSelectedItem = position;
+                //mAdapter.notifyDataSetChanged();
 
                 for(int i = 0; i < num; i++) {
                     tv.get(i).setText(data.data.get(i));  //access all textViews in query column and set text to queried items data
@@ -171,14 +175,21 @@ public class ResultActivity extends AppCompatActivity {
 
 
     @Override
-    public void onPause() {
+    protected void onPause() {
         super.onPause();
         tv.clear();
+        realm.close();
         Log.d("ddd", "App Paused..");
     }
     //fill date layout with queried dates
 
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        realm = Realm.getDefaultInstance();
+    }
 
     public void addData(String v) {
 
@@ -275,6 +286,8 @@ public class ResultActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
     public static void ArrayListtoArray(ArrayList<String> stringList, String[] stringArray){
