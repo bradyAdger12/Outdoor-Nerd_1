@@ -1,4 +1,4 @@
-#Tue Apr 17 10:00:33 MDT 2018
-base.0=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/3
+#Tue Apr 17 14:39:33 MDT 2018
+base.0=C\:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\21
 path.0=classes.dex
 renamed.0=classes.dex

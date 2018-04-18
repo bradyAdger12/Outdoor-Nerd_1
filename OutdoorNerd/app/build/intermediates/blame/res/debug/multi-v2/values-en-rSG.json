@@ -1,10 +1,32 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rSG/values-en-rSG.xml",
+            "outputFile": "C:\\Users\\micalinscheid\\Documents\\School\\2018Spring\\CS397Android\\FinalProject\\MainFolder\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
             "map": [
                 {
-                    "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/play-services-wallet-11.4.0.aar/b13b12e9ab717e9455b38d4f222a7ad5/res/values-en-rSG/values.xml",
+                    "source": "C:\\Users\\micalinscheid\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-wallet-11.4.0.aar\\b13b12e9ab717e9455b38d4f222a7ad5\\res\\values-en-rSG\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "244",
+                        "endColumns": "99",
+                        "endOffsets": "343"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "103",
+                        "endOffsets": "154"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Benjamin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-wallet-11.4.0.aar\\60bc1d4659b03754c7ae8f3e9dbaebbb\\res\\values-en-rSG\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

@@ -1,19 +1,10 @@
-#Tue Apr 17 10:27:01 MDT 2018
+#Tue Apr 17 22:17:23 MDT 2018
+path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
-renamed.5=classes6.dex
-renamed.4=classes5.dex
-renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/11
-base.4=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/14
-base.3=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/15
-base.2=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/12
-base.1=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/13
-base.0=/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/transforms/dexMerger/debug/10
-path.5=classes.dex
-path.4=classes.dex
-path.3=classes.dex
-path.2=classes.dex
+base.2=C\:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
+base.1=C\:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
+base.0=C\:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16

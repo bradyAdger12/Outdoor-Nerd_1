@@ -1,10 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "C:\\Users\\micalinscheid\\Documents\\School\\2018Spring\\CS397Android\\FinalProject\\MainFolder\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8fa920344368b4625afb7db7eb229cb3/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "C:\\Users\\micalinscheid\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\8fa920344368b4625afb7db7eb229cb3\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Benjamin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1880dce56867119ef860603339a91e27\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

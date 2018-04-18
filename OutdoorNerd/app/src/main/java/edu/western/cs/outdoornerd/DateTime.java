@@ -32,7 +32,7 @@ public class DateTime {
         t.setTextSize(25);
         t.setPadding(0, 50, 0, 0);
         t.setGravity(Gravity.CENTER);
-        t.setText(month + "/" + day + " " + hour + ":00" + "\n");
+        t.setText(month + "/" + day + " " + hour + ":00" );
         ResultActivity.dateLayout.addView(t);
     }
 

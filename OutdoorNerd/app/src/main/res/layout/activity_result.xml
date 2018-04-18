@@ -14,59 +14,56 @@
     <include layout="@layout/tool_bar"/>
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:id="@+id/titleBar"
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/timeTitle"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:background="@color/colorPrimaryDark">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_border"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:text="TIME"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/timeTitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:background="@drawable/border"
-                android:layout_weight="1"
-                android:text="TIME"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/queryTitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="QUERY"
-                android:textSize="20sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/border"
-                android:textStyle="bold"
-                />
+        <TextView
+            android:id="@+id/queryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/white_border"
+            android:fontFamily="@font/ubuntu"
+            android:gravity="center"
+            android:text="QUERY"
+            android:textColor="@color/Black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
 
 
-
-
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="450dp"
         android:fillViewport="true"
-        android:scrollbars="vertical"
         android:scrollbarSize="2dp"
-        >
-
+        android:scrollbars="vertical">
 
 
         <LinearLayout
             android:id="@+id/queryTables"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-
 
 
             <LinearLayout
@@ -74,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/White"
+                android:background="@drawable/white_border"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -84,34 +81,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:background="@color/appMain">
+                android:background="@drawable/white_border"
+                android:orientation="vertical">
 
             </LinearLayout>
 
 
-</LinearLayout>
+        </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+
+        >
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="QUERY BY..."
-            android:textSize="30dp"
+            android:background="@drawable/white_border"
+            android:fontFamily="@font/ubuntu"
             android:gravity="center"
-            android:background="@drawable/border"
-            android:textStyle="bold"/>
+            android:text="Query By:"
+            android:textColor="@color/Black"
+            android:textSize="40dp"
+            />
+        <!--android:textStyle="bold"-->
+
     </LinearLayout>
 
     <ListView
         android:id="@+id/queryListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:listSelector="#8ebd55"
+
         ></ListView>
 
 

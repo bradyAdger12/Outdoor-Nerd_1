@@ -12,9 +12,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="60dp"
-        android:src="@drawable/outdoornerdlogo"
-        />
+        android:cropToPadding="false"
+        android:padding="150dp"
+        android:src="@drawable/outdoornerdlogo" />
 
 
 

@@ -1,10 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn-rMN/values-mn-rMN.xml",
+            "outputFile": "C:\\Users\\micalinscheid\\Documents\\School\\2018Spring\\CS397Android\\FinalProject\\MainFolder\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn-rMN\\values-mn-rMN.xml",
             "map": [
                 {
-                    "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/mediarouter-v7-25.2.0.aar/529b64bcd3c8c1684cb7b215941ce3bf/res/values-mn-rMN/values-mn-rMN.xml",
+                    "source": "C:\\Users\\micalinscheid\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\529b64bcd3c8c1684cb7b215941ce3bf\\res\\values-mn-rMN\\values-mn-rMN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,162,276,393,505,605,689,785,897,992,1086,1176,1268,1381,1494,1584,1670,1767,1877,1963",
+                        "endColumns": "106,113,116,111,99,83,95,111,94,93,89,91,112,112,89,85,96,109,85,98",
+                        "endOffsets": "157,271,388,500,600,684,780,892,987,1081,1171,1263,1376,1489,1579,1665,1762,1872,1958,2057"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn-rMN\\values-mn-rMN.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Benjamin\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\7bb45ec94a5a6cb909c40df8042cb250\\res\\values-mn-rMN\\values-mn-rMN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

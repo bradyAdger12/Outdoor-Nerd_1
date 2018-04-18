@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/micalinscheid/Documents/School/2018Spring/CS397Android/FinalProject/MainFolder/Outdoor-Nerd/OutdoorNerd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "C:\\Users\\micalinscheid\\Documents\\School\\2018Spring\\CS397Android\\FinalProject\\MainFolder\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/8fa920344368b4625afb7db7eb229cb3/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\micalinscheid\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\8fa920344368b4625afb7db7eb229cb3\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +14,39 @@
                     }
                 },
                 {
-                    "source": "/Users/micalinscheid/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/dd12d1573139406066409afafe74564f/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\micalinscheid\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\dd12d1573139406066409afafe74564f\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "619,685,746,812",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "680,741,807,874"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Benjamin\\Desktop\\Outdoor-Nerd\\OutdoorNerd\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Benjamin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\1880dce56867119ef860603339a91e27\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,212,347,416,480,549",
+                        "endColumns": "156,134,68,63,68,69",
+                        "endOffsets": "207,342,411,475,544,614"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Benjamin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\f0f5f7f6b3af701a9e6ec07d8dbaa324\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

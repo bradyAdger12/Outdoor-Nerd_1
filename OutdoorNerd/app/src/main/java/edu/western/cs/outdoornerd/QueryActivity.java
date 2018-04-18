@@ -194,6 +194,8 @@ public class QueryActivity extends AppCompatActivity implements OnMapReadyCallba
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(QueryActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+
                 AddQueryAsyncTask addQueryAsyncTask = new AddQueryAsyncTask(triplet);
                 addQueryAsyncTask.execute();
                 Runnable nextAction;

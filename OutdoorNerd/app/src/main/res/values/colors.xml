@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -7,6 +8,10 @@
     <color name="White">#ffffff</color>
     <color name="appMain">#96c93f</color>
     <color name="appSecondary">#4288b7</color>
+    <color name="appMid">#7ca080</color>
     <color name="titleColors">#ffffff</color>
     <color name="listView">#5B8E7D</color>
+
+
 </resources>
+

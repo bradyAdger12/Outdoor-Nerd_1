@@ -3,6 +3,8 @@ package edu.western.cs.outdoornerd;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,7 +80,8 @@ public class ResultActivity extends AppCompatActivity {
 
         //ListView Array
         listviewItems = new ArrayList<>();
-        queryTitle = findViewById(R.id.queryTitle);
+        queryTitle = findViewById(R.id.queryTitle)
+        ;
 
 
         //Layouts
@@ -94,6 +97,9 @@ public class ResultActivity extends AppCompatActivity {
         //set up ListView
         lv = findViewById(R.id.queryListView);
         lv.setBackgroundColor(getResources().getColor(R.color.White));
+
+
+
         customAdapter = new CustomAdapter(this,listviewItems);
         lv.setAdapter(customAdapter);
 
@@ -123,7 +129,7 @@ public class ResultActivity extends AppCompatActivity {
                 Log.d("PARSING",  hour + " " + triplet);
             }
 
-            new DateTime(dateTime1.get(i).substring(5,7), dateTime1.get(i).substring(8,10), dateTime1.get(i).substring(0,3), hour, this);
+            new DateTime(dateTime1.get(i).substring(5,7), dateTime1.get(i).substring(8,10), dateTime1.get(i).substring(0,4), hour, this);
             //new DateTime("1", "15", "1995", Integer.toString(i + 1), this);
         }
 
@@ -136,13 +142,17 @@ public class ResultActivity extends AppCompatActivity {
             v.setVisibility(View.INVISIBLE);
         }
 
+
+
         //add icons to listview for each item and set to visible
         Data.hm.get("Temp").setDrawable(R.drawable.thermometer);
         Data.hm.get("Snow Depth").setDrawable(R.drawable.snowflake);
-        Data.hm.get("Wind").setDrawable(R.drawable.weather_pouring);
+        Data.hm.get("Wind").setDrawable(R.drawable.ic_wind);
 //        Data.hm.get("Soil Depth").setDrawable(R.drawable.earth);
 //        Data.hm.get("Stream Vol").setDrawable(R.drawable.water);
         Data.hm.get("Water EQ").setDrawable(R.drawable.water_percent);
+        Data.hm.get("pH").setDrawable(R.drawable.water_percent);
+        Data.hm.get("Stream V").setDrawable(R.drawable.ic_river);
 
         //ListView Click Listener
         lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
@@ -152,6 +162,8 @@ public class ResultActivity extends AppCompatActivity {
                 Log.d("ddd", item.getName());
                 Data data = item;
                 changeTitle(data.getName().toUpperCase() + "(" + data.getMeasurement() + ")");    //change title to queried item
+
+
 
                // lv.setBackgroundColor(getResources().getColor(R.color.appMain));
                 //mSelectedItem = position;
@@ -201,6 +213,8 @@ public class ResultActivity extends AppCompatActivity {
         r.setTextColor(getResources().getColor(R.color.Black));
         r.setGravity(Gravity.CENTER);
         queryLayout.addView(r);
+
+
         tv.add(r);
 
     }
@@ -238,20 +252,40 @@ public class ResultActivity extends AppCompatActivity {
         ArrayList<String> waterEq = new ArrayList<>();
         waterEq.add("Water EQ");
         waterEq.add("in");
-        for (DataW d : mResults.findAll()){
+        for (DataW d : mResults.findAll().sort("dateTime", Sort.DESCENDING)){
             waterEq.add(d.getWaterEq());
         }
+
+
+        ArrayList<String> phAL = new ArrayList<>();
+        phAL.add("pH");
+        phAL.add("unit");
+        for (int i = 0; i < mResults.findAll().size(); i++){
+            phAL.add("null");
+        }
+
+        ArrayList<String> streamvAL = new ArrayList<>();
+        streamvAL.add("Stream V");
+        streamvAL.add("cfs");
+        for (int i = 0; i < mResults.findAll().size(); i++){
+            streamvAL.add("null");
+        }
+
 
 
         String temps[] = new String[tempsAL.size()];
         String rain[] = new String[windA.size()]; //this is actually wind
         String snow[] = new String[snowD.size()]; //snow depth
         String hum[] = new String[waterEq.size()]; // actually water eQ
+        String ph[] = new String[phAL.size()];
+        String streamv[] = new String[streamvAL.size()];
 
         ArrayListtoArray(tempsAL, temps);
         ArrayListtoArray(windA, rain);
         ArrayListtoArray(snowD, snow);
         ArrayListtoArray(waterEq, hum);
+        ArrayListtoArray(phAL, ph);
+        ArrayListtoArray(streamvAL, streamv);
 
 
 
@@ -274,6 +308,8 @@ public class ResultActivity extends AppCompatActivity {
         items.add(rain);
         items.add(snow);
         items.add(hum);
+        items.add(ph);
+        items.add(streamv);
 //        items.add(soil);
 //        items.add(stream);
 

@@ -34,7 +34,7 @@ public class Data {
 
     public void compileData(int n, String[] d) {
         for(String s: d) {
-            data.add(s + "\n");
+            data.add(s);
         }
     }
 
